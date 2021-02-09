@@ -1,0 +1,58 @@
+
+
+# Introduction {#intro}
+
+## THE CHALLLENGER.{#challenger}
+
+If you have ever been in a data analytics class I bet you have ever heard of [Edward Tufte](https://www.tufte.com). On his criticisms on the engineers' failures to make sense of the concerns the had on lunching [The Challenger](https://www.nasa/challenger/.com) on January 28, 1986.
+```{r , include=F}
+xfun::embed_file(path = "/home/rwills/Rproject/REPORTS MADE EASY/TUFTE/Tufte.pdf",name = "The Challenger", text = "Download Tuftes' Challenger Cristisms")
+```
+
+>Being Right isn't enough, you have to be convincing.
+>
+>
+> ~ Edward Tufte
+
+This philosophy formed the basis of his arguments in his book _Visual Explanations and Quantities, Evidence and Narrative_
+
+>An essential analytic task in making decisions based on evidence
+is to understand how things work—mechanism, trade-offs, process
+and dynamics, cause and effect. That is, intervention-thinking and
+policy-thinking demand causality-thinking
+
+>Making decisions based on evidence requires the appropriate display
+of that evidence. Good displays of data help to reveal knowledge
+relevant to understanding mechanism, process and dynamics, cause
+and effect. That is, displays of statistical data should directly serve the
+analytic task at hand.
+
+
+Hence we are going set our reports right even before we begin in whatever we are supposed to report on.
+
+
+## DATA {#data}
+Lets take an hypothetical data where in Africa the distance students take to walk to get access to basic education affect their perfomance.
+
+```{r data,}
+set.seed(123)
+n <- 30
+df <- tibble(
+  score=sample(30:99, size = n, replace = T),
+  dist=sample(1:8, size=n, replace = T)
+)
+
+head(df)#Checking the first six observations
+
+### Any time you get data into your hands always check its health status ie, the first thing you get in a hospital is checking weight, height, BMI, blood pressure etc.
+### 
+### Height & Weight
+nrow(df)#number of rows
+ncol(df)#number of columns
+### Pressure
+str(df)#structure
+### BMI
+dim(df) 
+colnames(df)
+### 
+```

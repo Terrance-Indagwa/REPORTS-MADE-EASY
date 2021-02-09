@@ -1,0 +1,24 @@
+# DISCUSSION{#disc}
+
+From the anova table we can see that slightly significant with significance level at $0.01$.
+
+Furthermore we can conclude from the summary table that distance average is the most significant in the three categories of dist_comm, which we can interpret for every one unit change in dist_commaverage, dist_commfar increases by \$0.0432\$.
+
+Another good habit you should always check is **measure of goodness of fit of your model**  here we look at how good is our model working.
+
+Checking the adjusted R-Squared($.1508$) we see the model poorly performed this is justified with the high RSE($17.7$).
+Always remember even is our model poorly performs it will always tell us something as per this definition of statistics,
+
+>"Statistics is the explanation of patterns in the context of what remains unknown"
+
+# RECOMMENDATION
+
+Looking at the eda\@ref(mods) and the discussion\@ref(disc) we can conclude our analytics work need more data or there maybe some information missing, to correctly predict a students score.
+
+Hence, the data department should review the data for any further analytics.
+
+# (APPENDIX) Appendix {-}
+
+# REMARKS
+
+Awesome unlike the engineers you will never have to face the Tuftes' criticisms. Ofcourse this just an introduction tutorial I have tried to capture the essentials as much as I can.

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 MODELS/METHODS | REPORTS MADE EASY</title>
+  <meta name="description" content="This is an introduction tutorial of how efficient reports can be written in R." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 MODELS/METHODS | REPORTS MADE EASY" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an introduction tutorial of how efficient reports can be written in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 MODELS/METHODS | REPORTS MADE EASY" />
+  
+  <meta name="twitter:description" content="This is an introduction tutorial of how efficient reports can be written in R." />
+  
+
+<meta name="author" content="DIR-TERRANCE" />
+
+
+<meta name="date" content="2021-02-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="eda.html"/>
+<link rel="next" href="disc.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">REPORTS MADE EASY</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#packages."><i class="fa fa-check"></i><b>0.1</b> Packages.</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#bibliography"><i class="fa fa-check"></i><b>0.1.1</b> Bibliography</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#challenger"><i class="fa fa-check"></i><b>1.1</b> THE CHALLLENGER.</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#data"><i class="fa fa-check"></i><b>1.2</b> DATA</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="eda.html"><a href="eda.html"><i class="fa fa-check"></i><b>2</b> EXPLANATORY DATA ANALYSIS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="eda.html"><a href="eda.html#dw"><i class="fa fa-check"></i><b>2.1</b> DATA WRANGLING</a></li>
+<li class="chapter" data-level="2.2" data-path="eda.html"><a href="eda.html#vis"><i class="fa fa-check"></i><b>2.2</b> Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mods.html"><a href="mods.html"><i class="fa fa-check"></i><b>3</b> MODELS/METHODS</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mods.html"><a href="mods.html#uses-of-statistical-modelsstatmods."><i class="fa fa-check"></i><b>3.1</b> USES OF STATISTICAL MODELS{#statMods}.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="disc.html"><a href="disc.html"><i class="fa fa-check"></i><b>4</b> DISCUSSION</a></li>
+<li class="chapter" data-level="5" data-path="recommendation.html"><a href="recommendation.html"><i class="fa fa-check"></i><b>5</b> RECOMMENDATION</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="remarks.html"><a href="remarks.html"><i class="fa fa-check"></i><b>A</b> REMARKS</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/terrance-indagwa" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">REPORTS MADE EASY</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mods" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> MODELS/METHODS</h1>
+<p>Now that we have seen some interesting patterns, lets try to get the finnier details of them.
+Modeling is important for they reveal subtle stories in a data.</p>
+<blockquote>
+<p>All models are wrong. Some models are useful.</p>
+<pre><code>                                          ~Author(Statistical Modelling)</code></pre>
+</blockquote>
+<blockquote>
+<p>Art is a lie that tells the truth!</p>
+<pre><code>                                                       ~Pablo Picasso</code></pre>
+</blockquote>
+<p>There are as many named lists of models as sand, yet they all have one thing in common;</p>
+<blockquote>
+<p>A model is a representative of a specific purpose.</p>
+</blockquote>
+<p>Hence the appropriate form of the model depends on the task at hand and the expertise of the scientist.</p>
+<div id="uses-of-statistical-modelsstatmods." class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> USES OF STATISTICAL MODELS{#statMods}<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</h2>
+<pre><code>*Description models
+*Classification or prediction models.
+*Anticipating the consequences of interventions models.</code></pre>
+<p>Its difficult to use observation to inform concrete knowledge because r/ships are complicated and involve multiple factors, do you still recall the mistakes made by the challengers’ engineers?<a href="intro.html#challenger">1.1</a>.</p>
+<blockquote>
+<p>Mathematicians(“Statisticians”) do not study objects, butbthe relations among objetcs.</p>
+<pre><code>                                                         ~Georges Braque</code></pre>
+</blockquote>
+<p>Lets consider our case data <a href="eda.html#dw">2.1</a>, we want to build a simple model that predicts a students performance based on the distance community(Sometimes variables will have collinearity hence be keen.)</p>
+<p><span class="math display">\[\begin{equation}
+
+    Y=\beta_0+\beta X +e
+    (\#eq: reg)
+
+\end{equation}\]</span></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="mods.html#cb34-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span>score<span class="sc">~</span>dist_comm, <span class="at">data =</span> df)</span>
+<span id="cb34-2"><a href="mods.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="mods.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: score
+##           Df Sum Sq Mean Sq F value  Pr(&gt;F)  
+## dist_comm  2 2240.1 1120.03  3.5759 0.04191 *
+## Residuals 27 8456.9  313.22                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="mods.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = score ~ dist_comm, data = df)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -31.471 -13.153  -1.971  10.279  42.625 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     53.375      6.257   8.530 3.82e-09 ***
+## dist_commfar    16.096      7.588   2.121   0.0432 *  
+## dist_commnear   -3.175     10.089  -0.315   0.7554    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 17.7 on 27 degrees of freedom
+## Multiple R-squared:  0.2094, Adjusted R-squared:  0.1508 
+## F-statistic: 3.576 on 2 and 27 DF,  p-value: 0.04191</code></pre>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>There are several classification of models eg. Mathematical and Statistical models, how you define a model changes its classification hence affecting its application<a href="mods.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="eda.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="disc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["REPORTS MADE EASY.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_hightlight": true
+},
+"toolbar": "fixed",
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

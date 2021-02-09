@@ -1,0 +1,63 @@
+# EXPLANATORY DATA ANALYSIS {#eda}
+Here we form the foundation of our report. We listen to what the data has for us.This should be the entry step in a data project, where we start by knowing the correct data types and exploring distributions in numerical and categorical variables.
+Always getting your data into the right format will affect how you work with them hence inferences that they generate.
+
+At this point we perform dataset _'anatomy'_ namely;
+
+        *Getting metrics like total rows, columns, data types, zeros, and missing values
+        *How each of the previous items impacts on different analysis
+        *How to quickly filter and select variables.
+        
+        *Univariate analysis in categorical variable:
+           
+           +Frequency, percentage, cumulative value, and colorful plots
+        *Univariate analysis with numerical variables:
+           +Percentile, dispersion, standard deviation, mean, top and bottom values
+          +Plotting distributions
+
+Based on our \@ref(data) we can develop the following questions.
+  
+    *Can we divide the perfomance into fail and passed?
+    *What distance community does one above categories fall into?
+    
+## DATA WRANGLING {#dw}
+
+```{r wrangling}
+df$performance <- fifelse(df$score>=40, yes = "passed", no="failed") #answering the first question.
+df$dist_comm <- fifelse(df$dist<=1, yes = "near",
+                        fifelse(df$dist>1 & df$dist<=4,
+                                yes="average",
+                                no="far")
+                        )#answering the second question.
+df$dist <- as.factor(df$dist)
+df$dist_comm <- as.factor(df$dist_comm)
+df$performance <- as.factor(df$performance)
+```
+
+## Visualization {#vis}
+
+```{r visBox-fig, fig.align='center',out.width='80%', fig.cap="boxplot of score based pn distance students walk"}
+df %>% 
+  ggplot(aes(dist, score))+
+  geom_boxplot()+
+  labs(title = "BOXPLOT OF STUDENTS'\nSCORE BASED ON DISTANCE.")
+
+```
+Its results above is astonishing, for see students in coming from distance 3-4 perform even better than those who are close to school.
+
+```{r visBar-fig, fig.cap='Bargraphs of students score perfomance based on different factors.', fig.align='center'}
+df %>% 
+  ggplot(aes(y=score, fill=performance))+
+  geom_bar(position = "stack")+
+  facet_wrap(~performance)+
+  labs(title = "Bargraph OF STUDENTS'\nSCORE.")
+
+df %>% 
+  ggplot(aes(y=score, fill=performance))+
+  geom_bar(position = "identity")+
+  facet_wrap(~dist_comm)+
+  labs(title = "Bargraph OF STUDENTS'\nSCORE. IN DIFFERENT DISTANCE COMMUNITIES")
+
+```
+
+

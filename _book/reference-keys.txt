@@ -1,0 +1,16 @@
+fig:visBox-fig
+fig:visBar-fig-1
+fig:visBar-fig-2
+packages.
+bibliography
+intro
+challenger
+data
+eda
+dw
+vis
+mods
+uses-of-statistical-modelsstatmods.
+disc
+recommendation
+remarks

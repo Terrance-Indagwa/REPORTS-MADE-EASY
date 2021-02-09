@@ -1,0 +1,57 @@
+# MODELS/METHODS{#mods}
+
+Now that we have seen some interesting patterns, lets try to get the finnier details of them.
+Modeling is important for they reveal subtle stories in a data.
+
+>All models are wrong. Some models are useful.
+>
+>                                               ~Author(Statistical Modelling)
+
+>Art is a lie that tells the truth!
+>
+>                                                            ~Pablo Picasso
+
+
+There are as many named lists of models as sand, yet they all have one thing in common;   
+
+>A model is a representative of a specific purpose.
+
+Hence the appropriate form of the model depends on the task at hand and the expertise of the scientist.
+
+## USES OF STATISTICAL MODELS{#statMods}^[There are several classification of models eg. Mathematical and Statistical models, how you define a model changes its classification hence affecting its application].
+
+    *Description models
+    *Classification or prediction models.
+    *Anticipating the consequences of interventions models.
+    
+Its difficult to use observation to inform concrete knowledge because r/ships are complicated and involve multiple factors, do you still recall the mistakes made by the challengers' engineers?\@ref(challenger).
+
+>Mathematicians("Statisticians") do not study objects, butbthe relations among objetcs.
+>
+>                                                              ~Georges Braque
+
+Lets consider our case data \@ref(dw), we want to build a simple model that predicts a students performance based on the distance community(Sometimes variables will have collinearity hence be keen.)
+
+
+\begin{equation}
+
+    Y=\beta_0+\beta X +e
+    (\#eq: reg)
+
+\end{equation}
+
+```{r reg}
+mod <- lm(formula =score~dist_comm, data = df)
+
+anova(mod)
+summary(mod)
+```
+
+
+
+
+
+
+
+
+

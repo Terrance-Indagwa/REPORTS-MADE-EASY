@@ -1,0 +1,8 @@
+`r if (knitr::is_html_output()) '
+# References {-}
+
+Xie Y. (2020). bookdown:Authoring Books and Techincal Documents using R Markdown R package version 1.31.
+
+R Core Team(2020). R: A LAnguage and Environment for Statistical Computing. R Foundation for Statistical Computing, Vienna, Austria.
+
+'`
